@@ -22,7 +22,7 @@ const conn = new driver.Connection(API_PATH);
 cron.schedule("0 3 * * *", async function() {
   solarImpactData = await retrieveKwh();
   const timestamp = Number(solarImpactData[0])
-  const dateObj = new Date(timestamp);
+  const dateObj = new Date(timestamp*1000);
   const year = dateObj.getFullYear(); 
   const month = monthsArr[dateObj.getMonth()]; 
 
